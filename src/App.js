@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import Input from './components/Input'
+import Button from './components/Button'
+import * as C from './styles.js'
+import { useState } from 'react'
 
-function App() {
+const App = () => {
+  const [currentNumber, setCurrentNumber] = useState('0')
+
+  const handleAddNumber= (number) => {
+    setCurrentNumber(prev => `${number} ${prev}`)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <C.Container>
+      <C.Content>
+        <Input value={currentNumber} />
+        <C.Row>
+          <Button label="x" onClick={() => handleAddNumber('x')}/>
+          <Button label="/" onClick={() => handleAddNumber('/')}/>
+          <Button label="C" onClick={() => handleAddNumber('C')}/>
+          <Button label="X" onClick={() => handleAddNumber('X')}/>
+        </C.Row>
+        <C.Row>
+          <Button label="7" onClick={() => handleAddNumber('7')}/>
+          <Button label="8" onClick={() => handleAddNumber('8')}/>
+          <Button label="9" onClick={() => handleAddNumber('9')}/>
+          <Button label="-" onClick={() => handleAddNumber('-')}/>
+        </C.Row>
+        <C.Row>
+          <Button label="4" onClick={() => handleAddNumber('4')}/>
+          <Button label="5" onClick={() => handleAddNumber('5')}/>
+          <Button label="6" onClick={() => handleAddNumber('6')}/>
+          <Button label="+" onClick={() => handleAddNumber('+')}/>
+        </C.Row>
+        <C.Row>
+          <Button label="1" onClick={() => handleAddNumber('1')}/>
+          <Button label="2" onClick={() => handleAddNumber('2')}/>
+          <Button label="3" onClick={() => handleAddNumber('3')} />
+          <Button label="=" onClick={() => handleAddNumber('=')}/>
+        </C.Row>
+      </C.Content>
+    </C.Container>
   );
 }
 
