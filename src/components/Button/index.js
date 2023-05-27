@@ -1,8 +1,8 @@
-import * as C from './styles.js'
+import * as C from './styles'
 
 const Button = ({label, onClick}) => {
     return (
-        <C.ButtonContainer onClick={onClick}>
+        <C.ButtonContainer onClick={onClick} type="button">
             {label}
         </C.ButtonContainer>
     );
